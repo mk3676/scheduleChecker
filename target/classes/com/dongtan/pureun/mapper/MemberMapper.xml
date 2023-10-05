@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+<mapper namespace="com.dongtan.pureun.mapper.MemberMapper">
+	<!-- 아이디 중복 확인 -->
+	<select id="checkId" resultType="com.dongtan.pureun.vo.MemberVO">
+		select * from Member where id = #{id}
+	</select>
+	
+	<!-- 회원 가입 -->
+	<insert id="insertMember" parameterType="com.dongtan.pureun.vo.MemberVO">
+		insert into Member(id, password, name, email) values (#{id}, #{password}, #{name}, #{email})
+	</insert>
+</mapper>
